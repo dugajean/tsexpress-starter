@@ -1,4 +1,4 @@
-export default function logRequests(req: any, res: any, next: any) {
+export default function logRequests<T>(req: T, res: T, next: any): any {
   console.log('Logging this cool request.');
   next();
 }

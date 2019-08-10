@@ -19,9 +19,7 @@ function addRoute(
   };
 
   Object.defineProperty(target, '_routes', {
-    value: {
-      [verb]: [...currentRoutes, newRoute]
-    },
+    value: { [verb]: [...currentRoutes, newRoute] },
     writable: true
   });
 
@@ -29,51 +27,31 @@ function addRoute(
 }
 
 export function Get(route: string = '', ...middlwares: Function[]) {
-  return function(
-    target: Object,
-    key: string | symbol,
-    descriptor: PropertyDescriptor
-  ) {
+  return (target: object, key: string | symbol, descriptor: PropertyDescriptor) => {
     return addRoute('get', route, middlwares, target, descriptor);
   };
 }
 
 export function Post(route: string = '', ...middlwares: Function[]) {
-  return function(
-    target: Object,
-    key: string | symbol,
-    descriptor: PropertyDescriptor
-  ) {
+  return (target: object, key: string | symbol, descriptor: PropertyDescriptor) => {
     return addRoute('post', route, middlwares, target, descriptor);
   };
 }
 
 export function Patch(route: string = '', ...middlwares: Function[]) {
-  return function(
-    target: Object,
-    key: string | symbol,
-    descriptor: PropertyDescriptor
-  ) {
+  return (target: object, key: string | symbol, descriptor: PropertyDescriptor) => {
     return addRoute('patch', route, middlwares, target, descriptor);
   };
 }
 
 export function Put(route: string = '', ...middlwares: Function[]) {
-  return function(
-    target: Object,
-    key: string | symbol,
-    descriptor: PropertyDescriptor
-  ) {
+  return (target: object, key: string | symbol, descriptor: PropertyDescriptor) => {
     return addRoute('put', route, middlwares, target, descriptor);
   };
 }
 
 export function Delete(route: string = '', ...middlwares: Function[]) {
-  return function(
-    target: Object,
-    key: string | symbol,
-    descriptor: PropertyDescriptor
-  ) {
+  return (target: object, key: string | symbol, descriptor: PropertyDescriptor) => {
     return addRoute('delete', route, middlwares, target, descriptor);
   };
 }

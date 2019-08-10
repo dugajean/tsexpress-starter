@@ -15,8 +15,13 @@ export function log(message: string): void {
  * @return {string}
  */
 export function stripSlashes(path: string): string {
-  if (path.endsWith('/')) path = path.slice(0, -1);
-  if (path.startsWith('/')) path = path.substring(1);
+  if (path.endsWith('/')) {
+    path = path.slice(0, -1);
+  }
+
+  if (path.startsWith('/')) {
+    path = path.substring(1);
+  }
 
   return path;
 }

@@ -6,8 +6,8 @@ import { stripSlashes, log } from './helpers';
 import { Route } from './http-decorators/verbs';
 
 export default class Application {
-  beforeRoutes?: Function;
-  afterRoutes?: Function;
+  beforeRoutes?: () => any;
+  afterRoutes?: () => any;
 
   /**
    * Application constructor.
@@ -28,12 +28,16 @@ export default class Application {
     this.express.use(BodyParser.json());
 
     // Run before routes hooks
-    if (this.beforeRoutes) this.beforeRoutes.call(this, this.express);
+    if (this.beforeRoutes) {
+      this.beforeRoutes.call(this, this.express);
+    }
 
     this.locateControllers();
 
     // Run after routes hooks
-    if (this.beforeRoutes) this.beforeRoutes.call(this, this.express);
+    if (this.beforeRoutes) {
+      this.beforeRoutes.call(this, this.express);
+    }
 
     this.express.listen(process.env.APP_PORT, () => {
       log(`Server listening on port: ${process.env.APP_PORT}`);
@@ -55,9 +59,7 @@ export default class Application {
    * @return {void}
    */
   private async locateControllers(): Promise<void> {
-    const controllerPaths = glob.sync(
-      path.join(__dirname, '../app/**/controller.ts')
-    );
+    const controllerPaths = glob.sync(path.join(__dirname, '../app/**/controller.ts'));
 
     let baseRoute;
     let controller;
@@ -84,16 +86,15 @@ export default class Application {
    */
   private registerRoutes(routes: any[], baseRoute: string): void {
     for (const verb in routes) {
-      routes[verb].forEach((route: Route) => {
-        const pathPart: string = stripSlashes(route.path);
-        const path: string = `/${baseRoute}${pathPart ? '/' : ''}${pathPart}`;
+      if (routes.hasOwnProperty(verb)) {
+        routes[verb].forEach((route: Route) => {
+          const routePart: string = stripSlashes(route.path);
+          const fullRoute: string = `/${baseRoute}${routePart ? '/' : ''}${routePart}`;
 
-        log(`Route: [${verb.toUpperCase()}] ${path}`);
-        this.express[verb](
-          path,
-          ...[...(route.middlewares ? route.middlewares : []), route.handler]
-        );
-      });
+          log(`Route: [${verb.toUpperCase()}] ${fullRoute}`);
+          this.express[verb](fullRoute, ...[...(route.middlewares ? route.middlewares : []), route.handler]);
+        });
+      }
     }
   }
 }

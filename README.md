@@ -1,53 +1,37 @@
-# typescript-express
+# tsexpress-starter
 
-[![build status](https://img.shields.io/travis/com/dugajean/typescript-express.svg)](https://travis-ci.com/dugajean/typescript-express)
-[![code coverage](https://img.shields.io/codecov/c/github/dugajean/typescript-express.svg)](https://codecov.io/gh/dugajean/typescript-express)
-[![code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![made with lass](https://img.shields.io/badge/made_with-lass-95CC28.svg)](https://lass.js.org)
-[![license](https://img.shields.io/github/license/dugajean/typescript-express.svg)](LICENSE)
-[![npm downloads](https://img.shields.io/npm/dt/typescript-express.svg)](https://npm.im/typescript-express)
+[![build status](https://img.shields.io/travis/com/dugajean/tsexpress-starter.svg)](https://travis-ci.com/dugajean/tsexpress-starter)
+[![license](https://img.shields.io/github/license/dugajean/tsexpress-starter.svg)](LICENSE)
+[![npm downloads](https://img.shields.io/npm/dt/tsexpress-starter.svg)](https://npm.im/tsexpress-starter)
 
 > Express with TypeScript and more.
 
 ## Table of Contents
 
-
 ## Install
 
-[npm][]:
+###### Yarn
 
 ```sh
-npm install typescript-express
+yarn add tsexpress-starter
 ```
 
-[yarn][]:
+###### NPM
 
 ```sh
-yarn add typescript-express
+npm install tsexpress-starter
 ```
-
 
 ## Usage
 
-```js
-const TypescriptExpress = require('typescript-express');
+_Coming soon_
 
-const typescriptExpress = new TypescriptExpress();
+## Tests
 
-console.log(typescriptExpress.renderName());
-// script
+```javascript
+$ yarn test
 ```
-
-
-## Contributors
-
 
 ## License
 
-
-##
-
-[npm]: https://www.npmjs.com/
-
-[yarn]: https://yarnpkg.com/
+TSExpress Starter is released under the [the MIT License](LICENSE).

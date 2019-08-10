@@ -6,8 +6,19 @@ import { stripSlashes, log } from './helpers';
 import { Route } from './http-decorators/verbs';
 
 export default class Application {
-  beforeRoutes?: () => any;
-  afterRoutes?: () => any;
+  /**
+   * Logic to execute before routes are registered.
+   *
+   * @return  {Function|null}
+   */
+  beforeRoutes?: Function;
+
+  /**
+   * Logic to execute after routes are registered.
+   *
+   * @return  {Function|null}
+   */
+  afterRoutes?: Function;
 
   /**
    * Application constructor.

@@ -70,7 +70,7 @@ export default class Application {
    * @return {void}
    */
   private async locateControllers(): Promise<void> {
-    const controllerPaths = glob.sync(path.join(__dirname, '../app/**/controller.ts'));
+    const controllerPaths = glob.sync(path.join(__dirname, '../app/**/controller.{ts,js}'));
 
     let baseRoute;
     let controller;

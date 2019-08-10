@@ -64,21 +64,14 @@ export default class Application {
    *
    * @return {void}
    */
-  registerRoutes(routes: any, baseRoute: string): void {
+  registerRoutes(routes: any[], baseRoute: string): void {
     for (const verb in routes) {
       routes[verb].forEach((route: Route) => {
-        const path = stripSlashes(route.path);
+        const pathPart: string = stripSlashes(route.path);
+        const path: string = `/${baseRoute}${pathPart ? '/' : ''}${pathPart}`;
 
-        log(
-          `Route: [${verb.toUpperCase()}] /${baseRoute}${
-            path ? '/' : ''
-          }${stripSlashes(route.path)}`
-        );
-
-        this.express[verb](
-          `/${baseRoute}${path ? '/' : ''}${path}`,
-          route.handler
-        );
+        log(`Route: [${verb.toUpperCase()}] ${path}`);
+        this.express[verb](path, route.handler);
       });
     }
   }

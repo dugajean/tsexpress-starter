@@ -24,7 +24,7 @@ function addRoute(
 
 export function Get(route: string = '') {
   return function(
-    target: any,
+    target: Object,
     key: string | symbol,
     descriptor: PropertyDescriptor
   ) {
@@ -34,7 +34,7 @@ export function Get(route: string = '') {
 
 export function Post(route: string = '') {
   return function(
-    target: any,
+    target: Object,
     key: string | symbol,
     descriptor: PropertyDescriptor
   ) {
@@ -44,7 +44,7 @@ export function Post(route: string = '') {
 
 export function Patch(route: string = '') {
   return function(
-    target: any,
+    target: Object,
     key: string | symbol,
     descriptor: PropertyDescriptor
   ) {
@@ -54,7 +54,7 @@ export function Patch(route: string = '') {
 
 export function Put(route: string = '') {
   return function(
-    target: any,
+    target: Object,
     key: string | symbol,
     descriptor: PropertyDescriptor
   ) {
@@ -64,7 +64,7 @@ export function Put(route: string = '') {
 
 export function Delete(route: string = '') {
   return function(
-    target: any,
+    target: Object,
     key: string | symbol,
     descriptor: PropertyDescriptor
   ) {

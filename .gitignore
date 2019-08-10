@@ -6,5 +6,4 @@ node_modules
 coverage
 dist
 .nyc_output
-src/app/*
 .env

@@ -1,0 +1,57 @@
+{
+  "name": "typescript-express",
+  "description": "Express with TypeScript and more.",
+  "version": "0.1.0",
+  "author": "Dukagjin Surdulli <me@dukagj.in> (https://dukagj.in/)",
+  "bugs": {
+    "url": "https://github.com/dugajean/typescript-express/issues",
+    "email": "me@dukagj.in"
+  },
+  "contributors": [
+    "Dukagjin Surdulli <me@dukagj.in> (https://dukagj.in/)"
+  ],
+  "scripts": {
+    "test": "cross-env NODE_ENV=test ava"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "ava": "latest",
+    "codecov": "latest",
+    "cross-env": "latest",
+    "eslint": "latest",
+    "eslint-config-standard": "latest",
+    "eslint-plugin-standard": "latest",
+    "standard": "latest"
+  },
+  "ava": {
+    "failFast": true,
+    "verbose": true,
+    "helpers": [
+      "test/helpers/**/*"
+    ]
+  },
+  "engines": {
+    "node": ">=8.3"
+  },
+  "homepage": "https://github.com/dugajean/typescript-express",
+  "keywords": [
+    "typescript",
+    "express",
+    "node",
+    "starter"
+  ],
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dugajean/typescript-express"
+  }
+}

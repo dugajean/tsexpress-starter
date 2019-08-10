@@ -40,18 +40,18 @@ import barMiddlewareFunc from '../../middleware/barMiddlewareFunc';
 import bazMiddlewareFunc from '../../middleware/bazMiddlewareFunc';
 
 export class Controller {
-  @Get('/')
+  @Get('/') // GET http://localhost:3000/sample
   home(req, res) {
     res.send('This is the home page.');
   }
 
-  @Get('/posts', fooMiddlewareFunc, barMiddlewareFunc)
-  home(req, res) {
+  @Get('/posts', fooMiddlewareFunc, barMiddlewareFunc) // GET http://localhost:3000/sample/posts
+  postsIndex(req, res) {
     res.send('This is where we list all posts.');
   }
 
-  @Post('/posts', bazMiddlewareFunc)
-  home(req, res) {
+  @Post('/posts', bazMiddlewareFunc) // POST http://localhost:3000/sample/posts
+  createPost(req, res) {
     res.send('This is where we create a new post.');
   }
 }

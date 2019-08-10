@@ -1,9 +1,12 @@
 import express from 'express';
+import BodyParser from 'body-parser';
+import Application from './core/application';
 
-const app = express();
+const server = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World, test');
-});
+server.use(BodyParser.urlencoded({ extended: true }));
+server.use(BodyParser.json());
 
-app.listen(3000);
+const app = new Application(server);
+
+app.start();

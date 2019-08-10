@@ -3,6 +3,9 @@
   "description": "Express with TypeScript and more.",
   "version": "0.1.0",
   "author": "Dukagjin Surdulli <me@dukagj.in> (https://dukagj.in/)",
+  "homepage": "https://github.com/dugajean/typescript-express",
+  "license": "MIT",
+  "main": "server.js",
   "bugs": {
     "url": "https://github.com/dugajean/typescript-express/issues",
     "email": "me@dukagj.in"
@@ -11,45 +14,57 @@
     "Dukagjin Surdulli <me@dukagj.in> (https://dukagj.in/)"
   ],
   "scripts": {
-    "test": "cross-env NODE_ENV=test ava"
+    "dev": "nodemon -e ts -w ./src -x ts-node src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "cross-env NODE_ENV=test tsc && ava"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.17.0",
+    "@types/node": "^12.7.1",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
     "ava": "latest",
-    "codecov": "latest",
     "cross-env": "latest",
     "eslint": "latest",
     "eslint-config-standard": "latest",
     "eslint-plugin-standard": "latest",
-    "standard": "latest"
+    "standard": "latest",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
   },
   "ava": {
     "failFast": true,
     "verbose": true,
     "helpers": [
       "test/helpers/**/*"
+    ],
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
     ]
   },
   "engines": {
     "node": ">=8.3"
   },
-  "homepage": "https://github.com/dugajean/typescript-express",
   "keywords": [
     "typescript",
     "express",
     "node",
     "starter"
   ],
-  "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm test",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/dugajean/typescript-express"

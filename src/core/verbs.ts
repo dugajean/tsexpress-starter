@@ -22,7 +22,7 @@ function addRoute(
   return descriptor;
 }
 
-export function Get(route: string) {
+export function Get(route: string = '') {
   return function(
     target: any,
     key: string | symbol,
@@ -32,7 +32,7 @@ export function Get(route: string) {
   };
 }
 
-export function Post(route: string) {
+export function Post(route: string = '') {
   return function(
     target: any,
     key: string | symbol,
@@ -42,7 +42,7 @@ export function Post(route: string) {
   };
 }
 
-export function Patch(route: string) {
+export function Patch(route: string = '') {
   return function(
     target: any,
     key: string | symbol,
@@ -52,7 +52,7 @@ export function Patch(route: string) {
   };
 }
 
-export function Put(route: string) {
+export function Put(route: string = '') {
   return function(
     target: any,
     key: string | symbol,
@@ -62,7 +62,7 @@ export function Put(route: string) {
   };
 }
 
-export function Delete(route: string) {
+export function Delete(route: string = '') {
   return function(
     target: any,
     key: string | symbol,

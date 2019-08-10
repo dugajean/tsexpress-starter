@@ -4,27 +4,60 @@
 [![license](https://img.shields.io/github/license/dugajean/tsexpress-starter.svg)](LICENSE)
 [![npm downloads](https://img.shields.io/npm/dt/tsexpress-starter.svg)](https://npm.im/tsexpress-starter)
 
-> Express with TypeScript and more.
-
-## Table of Contents
+Express with TypeScript and more.
 
 ## Install
 
-###### Yarn
+###### Git Clone
 
 ```sh
-yarn add tsexpress-starter
-```
-
-###### NPM
-
-```sh
-npm install tsexpress-starter
+git clone https://github.com/dugajean/tsexpress-starter
 ```
 
 ## Usage
 
-_Coming soon_
+Start off with a `server.js` in _src/_ with the following contents:
+
+```javascript
+import express from 'express';
+import Application from './core/application';
+
+new Application(express()).start();
+```
+
+A new folder within the _src/app_ folder represents a module. So to create your routes, you simply create that folder and place a `controller.js` file in it; this file will hold your routes.
+
+Any method within this controller can be decorated with one of the HTTP verbs that suits your needs: `Get`, `Post`, `Put`, `Patch` and Delete. Each of these decorators accepts a path as a first argument and an indefinite list of middlewares after the first argument.
+
+Example controller:
+
+```javascript
+// src/app/sample
+
+import { Get, Post } from '../../core/http-decorators/verbs';
+import fooMiddlewareFunc from '../../middleware/fooMiddlewareFunc';
+import barMiddlewareFunc from '../../middleware/barMiddlewareFunc';
+import bazMiddlewareFunc from '../../middleware/bazMiddlewareFunc';
+
+export class Controller {
+  @Get('/')
+  home(req, res) {
+    res.send('This is the home page.');
+  }
+
+  @Get('/posts', fooMiddlewareFunc, barMiddlewareFunc)
+  home(req, res) {
+    res.send('This is where we list all posts.');
+  }
+
+  @Post('/posts', bazMiddlewareFunc)
+  home(req, res) {
+    res.send('This is where we create a new post.');
+  }
+}
+```
+
+You're free to do anything you would do in a normal Express app. These features are all optional and can simply be ignored. Just use Express with Typescript.
 
 ## Tests
 

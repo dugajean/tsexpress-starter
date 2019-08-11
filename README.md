@@ -2,7 +2,6 @@
 
 [![build status](https://img.shields.io/travis/com/dugajean/tsexpress-starter.svg)](https://travis-ci.com/dugajean/tsexpress-starter)
 [![license](https://img.shields.io/github/license/dugajean/tsexpress-starter.svg)](LICENSE)
-[![npm downloads](https://img.shields.io/npm/dt/tsexpress-starter.svg)](https://npm.im/tsexpress-starter)
 
 Express with TypeScript and more.
 
@@ -20,9 +19,9 @@ Start off with a `server.js` in _src/_ with the following contents:
 
 ```javascript
 import express from 'express';
-import Application from './core/application';
+import Application from '@tsexpress-starter/application';
 
-new Application(express()).start();
+new Application(__dirname, express()).start();
 ```
 
 A new folder within the _src/app_ folder represents a module. So to create your routes, you simply create that folder and place a `controller.js` file in it; this file will hold your routes.
@@ -32,9 +31,9 @@ Any method within this controller can be decorated with one of the HTTP verbs th
 Example controller:
 
 ```javascript
-// src/app/sample
+// src/app/sample/controller.js
 
-import { Get, Post } from '../../core/http-decorators/verbs';
+import { Get, Post } from '@tsexpress-starter/routes';
 import fooMiddlewareFunc from '../../middleware/fooMiddlewareFunc';
 import barMiddlewareFunc from '../../middleware/barMiddlewareFunc';
 import bazMiddlewareFunc from '../../middleware/bazMiddlewareFunc';

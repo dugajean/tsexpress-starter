@@ -1,4 +1,4 @@
-import { Get } from '../../core/http-decorators/verbs';
+import { Get } from '@tsexpress-starter/routes';
 import logRequests from '../../middleware/log-requests';
 
 export default class Controller {

@@ -1,4 +1,4 @@
 import express from 'express';
-import Application from './core/application';
+import Application from '@tsexpress-starter/application';
 
-new Application(express()).start();
+new Application(__dirname, express()).start();

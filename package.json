@@ -3,11 +3,11 @@
   "description": "Express with TypeScript and more.",
   "version": "0.1.0",
   "author": "Dukagjin Surdulli <me@dukagj.in> (https://dukagj.in/)",
-  "homepage": "https://github.com/dugajean/typescript-express",
+  "homepage": "https://github.com/dugajean/tsexpress-starter",
   "license": "MIT",
-  "main": "server.js",
+  "main": "dist/server.js",
   "bugs": {
-    "url": "https://github.com/dugajean/typescript-express/issues",
+    "url": "https://github.com/dugajean/tsexpress-starter/issues",
     "email": "me@dukagj.in"
   },
   "contributors": [
@@ -15,12 +15,13 @@
   ],
   "scripts": {
     "dev": "nodemon -e ts -w ./src -x ts-node src/server.ts",
-    "build": "rimraf dist && yarn lint && tsc",
     "start": "cross-env NODE_ENV=production yarn build && node dist/server.js",
+    "build": "rimraf dist && yarn lint && tsc",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "cross-env NODE_ENV=test tsc && ava"
   },
   "dependencies": {
+    "@tsexpress-starter/application": "^0.1.5",
     "body-parser": "^1.19.0",
     "cross-env": "^5.2.0",
     "express": "^4.17.1",

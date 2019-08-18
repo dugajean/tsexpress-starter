@@ -15,7 +15,7 @@ git clone https://github.com/dugajean/tsexpress-starter
 ###### Manage with TS Express Starter CLI
 
 ```sh
-npm install -g @tsexpress-starter/cli
+yarn global add @tsexpress-starter/cli
 
 tsexpress-starter --version
 ```

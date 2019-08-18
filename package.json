@@ -22,10 +22,12 @@
   },
   "dependencies": {
     "@tsexpress-starter/application": "^0.1.5",
+    "@types/reflect-metadata": "^0.1.0",
     "body-parser": "^1.19.0",
     "cross-env": "^5.2.0",
     "express": "^4.17.1",
     "glob": "^7.1.4",
+    "reflect-metadata": "^0.1.13",
     "rimraf": "^2.6.3"
   },
   "devDependencies": {

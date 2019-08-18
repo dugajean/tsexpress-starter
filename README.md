@@ -1,16 +1,23 @@
-# tsexpress-starter
+# TS Express Starter
 
-[![build status](https://img.shields.io/travis/com/dugajean/tsexpress-starter.svg)](https://travis-ci.com/dugajean/tsexpress-starter)
 [![license](https://img.shields.io/github/license/dugajean/tsexpress-starter.svg)](LICENSE)
 
 Express with TypeScript and more.
 
 ## Install
 
-###### Git Clone
+###### Git Clone Starter Project
 
 ```sh
 git clone https://github.com/dugajean/tsexpress-starter
+```
+
+###### Manage with TS Express Starter CLI
+
+```sh
+npm install -g @tsexpress-starter/cli
+
+tsexpress-starter --version
 ```
 
 ## Usage
@@ -24,14 +31,14 @@ import Application from '@tsexpress-starter/application';
 new Application(__dirname, express()).start();
 ```
 
-A new folder within the _src/app_ folder represents a module. So to create your routes, you simply create that folder and place a `controller.js` file in it; this file will hold your routes.
+A new folder within the _src/app_ folder represents a module/domain. So to create your endpoints, simply use the CLI and run `tsexpress-starter make:domain <my domain>`, which then sets up a new folder within _src/app_ for you.
 
-Any method within this controller can be decorated with one of the HTTP verbs that suits your needs: `Get`, `Post`, `Put`, `Patch` and Delete. Each of these decorators accepts a path as a first argument and an indefinite list of middlewares after the first argument.
+Any method within the `controller.ts` file can be decorated with one of the HTTP verbs that suits your needs: `Get`, `Post`, `Put`, `Patch` and Delete. Each of these decorators accepts a path as a first argument and a list of middlewares after the first argument.
 
 Example controller:
 
 ```javascript
-// src/app/sample/controller.js
+// src/app/sample/controller.ts
 
 import { Get, Post } from '@tsexpress-starter/routes';
 import fooMiddlewareFunc from '../../middleware/fooMiddlewareFunc';
@@ -59,6 +66,8 @@ export class Controller {
 You're free to do anything you would do in a normal Express app. These features are all optional and can simply be ignored. Just use Express with Typescript.
 
 ## Tests
+
+Write your own tests and run them with:
 
 ```javascript
 $ yarn test

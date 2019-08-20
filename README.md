@@ -65,6 +65,12 @@ export class Controller {
 
 You're free to do anything you would do in a normal Express app. These features are all optional and can simply be ignored. Just use Express with Typescript.
 
+## Integration with TypeORM
+
+If you want to connect to a database with this "framework", I would suggest using TypeORM. There's also a helper package that makes the integration with TypeORM quite easy.
+
+Find out more about it here: https://www.npmjs.com/package/@tsexpress-starter/typeorm
+
 ## Tests
 
 Write your own tests and run them with:

@@ -6,7 +6,15 @@ Express with TypeScript and more.
 
 ## Install
 
-###### Git Clone Starter Project
+###### Recommended installation
+
+```sh
+yarn global add @tsexpress-starter/cli
+
+tsexpress-starter new my-project
+```
+
+###### Alternatively, use git clone
 
 ```sh
 git clone https://github.com/dugajean/tsexpress-starter
@@ -15,9 +23,7 @@ git clone https://github.com/dugajean/tsexpress-starter
 ###### Manage with TS Express Starter CLI
 
 ```sh
-yarn global add @tsexpress-starter/cli
-
-tsexpress-starter --version
+tsexpress-starter --help
 ```
 
 ## Usage
@@ -63,7 +69,7 @@ export class Controller {
 }
 ```
 
-You're free to do anything you would do in a normal Express app. These features are all optional and can simply be ignored. Just use Express with Typescript.
+You're free to do anything you would do in a normal ExpressJS app. These features are all optional and can simply be ignored. Just use Express with Typescript.
 
 ## Integration with TypeORM
 
